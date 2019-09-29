@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Hunter\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Hunter\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_TelegramBot.254867537.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Hunter\source\repos\TelegramBot" t="IncludeRecursive">
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_TelegramBot.589832466.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p=".git/info/exclude" t="IncludeRecursive" />
       <e p=".gitignore" t="Include" />
       <e p="ActionLooper" t="IncludeRecursive">
+        <e p="ActionLooper.cs" t="Include" />
         <e p="ActionLooper.csproj" t="IncludeRecursive" />
-        <e p="bin" t="ExcludeRecursive" />
+        <e p="bin" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.0" t="Include">
+              <e p="ActionLooper.deps.json" t="Include" />
+              <e p="ActionLooper.dll" t="Include" />
+              <e p="ActionLooper.pdb" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="ActionLooper.csproj.nuget.cache" t="Include" />
           <e p="ActionLooper.csproj.nuget.dgspec.json" t="Include" />
@@ -20,19 +30,21 @@
               <e p="ActionLooper.assets.cache" t="Include" />
               <e p="ActionLooper.csproj.FileListAbsolute.txt" t="Include" />
               <e p="ActionLooper.csprojAssemblyReference.cache" t="Include" />
-              <e p="Looper.AssemblyInfo.cs" t="Include" />
-              <e p="Looper.AssemblyInfoInputs.cache" t="Include" />
-              <e p="Looper.assets.cache" t="Include" />
+              <e p="ActionLooper.dll" t="Include" />
+              <e p="ActionLooper.pdb" t="Include" />
             </e>
           </e>
-          <e p="Looper.csproj.nuget.cache" t="Include" />
-          <e p="Looper.csproj.nuget.dgspec.json" t="Include" />
-          <e p="Looper.csproj.nuget.g.props" t="Include" />
-          <e p="Looper.csproj.nuget.g.targets" t="Include" />
           <e p="project.assets.json" t="Include" />
           <e p="project.packagespec.json" t="Include" />
         </e>
-        <e p="Program.cs" t="Include" />
+      </e>
+      <e p="ApiObjects" t="Include">
+        <e p="Chat.cs" t="Include" />
+        <e p="Message.cs" t="Include" />
+        <e p="MessageEntity.cs" t="Include" />
+        <e p="ReceivedUpdates.cs" t="Include" />
+        <e p="Update.cs" t="Include" />
+        <e p="User.cs" t="Include" />
       </e>
       <e p="bin" t="ExcludeRecursive" />
       <e p="global.json" t="Include" />
@@ -47,12 +59,6 @@
       <e p="Program.cs" t="Include" />
       <e p="TelegramBot.csproj" t="IncludeRecursive" />
       <e p="TelegramBot.sln" t="IncludeFlat" />
-      <e p="TelegramObjects" t="Include">
-        <e p="Chat.cs" t="Include" />
-        <e p="Message.cs" t="Include" />
-        <e p="Update.cs" t="Include" />
-        <e p="User.cs" t="Include" />
-      </e>
     </e>
   </component>
 </project>

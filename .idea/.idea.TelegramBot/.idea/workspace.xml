@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6e4ae295-b17f-4803-b36c-37c57c5012f6" name="Default Changelist" comment="" />
+    <list default="true" id="6e4ae295-b17f-4803-b36c-37c57c5012f6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ActionLooper/ActionLooper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApiObjects/MessageEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApiObjects/ReceivedUpdates.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TelegramBot/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TelegramBot/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TelegramBot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TelegramBot/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActionLooper/ActionLooper.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActionLooper/ActionLooper.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActionLooper/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramBot.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramBot.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramObjects/Chat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApiObjects/Chat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramObjects/Message.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApiObjects/Message.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramObjects/Update.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApiObjects/Update.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramObjects/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApiObjects/User.cs" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -9,16 +23,19 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ActionLooper/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.0/TelegramBot.AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TelegramObjects/Update.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TelegramObjects/Chat.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TelegramObjects/User.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TelegramObjects/Message.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ApiObjects/Message.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ApiObjects/User.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ApiObjects/ReceivedUpdates.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ApiObjects/Update.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ApiObjects/Chat.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ActionLooper/ActionLooper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ApiObjects/MessageEntity.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -30,11 +47,19 @@
         <option value="$PROJECT_DIR$/AsyncManager/Class1.cs" />
         <option value="$PROJECT_DIR$/AsyncManager/AsyncManager.cs" />
         <option value="$PROJECT_DIR$/Looper/Class1.cs" />
-        <option value="$PROJECT_DIR$/obj/Debug/netcoreapp3.0/TelegramBot.AssemblyInfo.cs" />
         <option value="$PROJECT_DIR$/Looper/Program.cs" />
+        <option value="$PROJECT_DIR$/TelegramBot.csproj" />
         <option value="$PROJECT_DIR$/ActionLooper/ActionLooper.csproj" />
+        <option value="$PROJECT_DIR$/obj/Debug/netcoreapp3.0/TelegramBot.AssemblyInfo.cs" />
+        <option value="$PROJECT_DIR$/ApiObjects/User.cs" />
+        <option value="$PROJECT_DIR$/ApiObjects/Chat.cs" />
+        <option value="$PROJECT_DIR$/ApiObjects/ReceivedUpdates.cs" />
+        <option value="$PROJECT_DIR$/ApiObjects/Update.cs" />
         <option value="$PROJECT_DIR$/ActionLooper/Program.cs" />
+        <option value="$PROJECT_DIR$/ApiObjects/MessageEntity.cs" />
+        <option value="$PROJECT_DIR$/ApiObjects/Message.cs" />
         <option value="$PROJECT_DIR$/Program.cs" />
+        <option value="$PROJECT_DIR$/ActionLooper/ActionLooper.cs" />
       </list>
     </option>
   </component>
@@ -52,7 +77,8 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -123,6 +149,8 @@
       <workItem from="1569717142985" duration="844000" />
       <workItem from="1569729187089" duration="565000" />
       <workItem from="1569761302763" duration="690000" />
+      <workItem from="1569763110550" duration="15219000" />
+      <workItem from="1569778709658" duration="3071000" />
     </task>
     <servers />
   </component>
@@ -131,6 +159,19 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
   </component>
@@ -141,6 +182,19 @@
           <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Program.cs</url>
+          <line>49</line>
+          <properties documentPath="$PROJECT_DIR$/Program.cs" initialLine="49">
+            <startOffsets>
+              <option value="1115" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1148" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
