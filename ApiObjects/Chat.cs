@@ -1,4 +1,4 @@
-namespace TelegramBot.ApiObjects
+namespace TelegramBotFramework.ApiObjects
 {
 	public class Chat
 	{

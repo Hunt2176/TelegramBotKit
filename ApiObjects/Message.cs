@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using TelegramBot.ApiObjects;
+using TelegramBotFramework.ApiObjects;
 
-namespace TelegramBot.ApiObjects
+namespace TelegramBotFramework.ApiObjects
 {
 	public class Message
 	{

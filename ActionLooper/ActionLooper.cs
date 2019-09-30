@@ -20,10 +20,10 @@ namespace ActionLooper
         }
 
         private SafeQueue<Action> _actionQueue = new SafeQueue<Action>();
-        private SafeQueue<Tuple<int, Action>> _idQueue = new SafeQueue<Tuple<int, Action>>();
+        private ThreadLockContainer<Dictionary<string, Action>> _cycleActions = new ThreadLockContainer<Dictionary<string, Action>>(new Dictionary<string, Action>());
         
         private int _waitTime = 0;
-        private int _taskDelay = 500;
+        private int _taskDelay = 700;
         private bool _running = false;
 
         private void Initialize()
@@ -34,27 +34,24 @@ namespace ActionLooper
             {
                 while (_running)
                 {
-                    if (_actionQueue.Count() > 0)
+                    var queue = _actionQueue.DequeueAll();
+                    _cycleActions.Do((x) =>
                     {
-                        var queue = _actionQueue.DequeueAll();
-                        var idQueue = _idQueue.DequeueAll();
-                        
-                        foreach (var tuple in idQueue)
+                        foreach (var value in x.Values)
                         {
-                            queue.Enqueue(tuple.Item2);
+                            queue.Enqueue(value);
                         }
-                        
-                        while (queue.Count > 0)
-                            try
-                            {
-                                queue.Dequeue()?.Invoke();
-                                Thread.Sleep(_taskDelay);
-                            }
-                            catch (Exception e)
-                            {
-                                Console.WriteLine(e);
-                            }
-                    }
+                    });
+                    while (queue.Count > 0)
+                        try
+                        {
+                            queue.Dequeue()?.Invoke();
+                            Thread.Sleep(_taskDelay);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e);
+                        }
                         
                     Thread.Sleep(_waitTime);
                 }
@@ -103,13 +100,10 @@ namespace ActionLooper
         {
             _actionQueue.Enqueue(action);
         }
-        
-        public void Post(int id, Action action)
+
+        public void PostToCycleQueue(string key, Action action)
         {
-            if (!_idQueue.Contains((item) => item.Item1 == id))
-            {
-                _idQueue.Enqueue(new Tuple<int, Action>(id, action));
-            }
+            _cycleActions.Do((actions => { actions[key] = action; }));
         }
 
         /// <summary>
@@ -131,52 +125,6 @@ namespace ActionLooper
         }
     }
 
-    public class ActionQueue
-    {
-        private SafeQueue<Action> _actionQueue = new SafeQueue<Action>();
-        private bool _looper = false;
-
-        private void Initiate()
-        {
-
-            var instanceQueue = _actionQueue.DequeueAll();
-            
-            while (instanceQueue.Count > 0)
-            {
-                foreach (var action in instanceQueue)
-                {
-                    action.Invoke();
-                    
-                    if (_looper) _actionQueue.Enqueue(action);
-                }
-            }
-        }
-
-        public void Start()
-        {
-            Initiate();
-        }
-
-        public ActionQueue then(Action action)
-        {
-            _actionQueue.Enqueue(action);
-            return this;
-        }
-
-        public ActionQueue UseAsLooper(bool looper)
-        {
-            _looper = looper;
-            return this;
-        }
-        
-        public ActionQueue() {}
-
-        public ActionQueue(Action first)
-        {
-            _actionQueue.Enqueue(first);
-        }
-    }
-
     class SafeQueue<T>
     {
         private Queue<T> _queue = new Queue<T>();
@@ -187,12 +135,10 @@ namespace ActionLooper
 
             try
             {
-                Console.WriteLine("Lock Acquired: Enqueue");
                 _queue.Enqueue(item);
             }
             finally
             {
-                Console.WriteLine("Lock Released: Enqueue");
                 Monitor.Exit(_queue);
             }
         }
@@ -204,7 +150,6 @@ namespace ActionLooper
 
             try
             {
-                Console.WriteLine("Lock Acquired: DequeueAll");
                 while(_queue.Count > 0)
                 {
                     allItems.Enqueue(_queue.Dequeue());
@@ -212,7 +157,6 @@ namespace ActionLooper
             }
             finally
             {
-                Console.WriteLine("Lock Released: DequeueAll");
                 Monitor.Exit(_queue);
             }
 
@@ -242,7 +186,6 @@ namespace ActionLooper
             Monitor.Enter(_queue);
             try
             {
-                Console.WriteLine("Lock Acquired: Contains");
                 foreach (var item in _queue)
                 {
                     if (!predicate(item)) continue;
@@ -253,7 +196,6 @@ namespace ActionLooper
             }
             finally
             {
-                Console.WriteLine("Lock Released: Contains");
                 Monitor.Exit(_queue);
             }
 
@@ -263,6 +205,34 @@ namespace ActionLooper
         public int Count()
         {
             return _queue.Count;
+        }
+    }
+
+    class ThreadLockContainer<T>
+    {
+        private readonly T _object;
+        
+        public ThreadLockContainer(T baseObject)
+        {
+            _object = baseObject;
+        }
+
+        private void ObtainLock(Action<T> onObtain)
+        {
+            Monitor.Enter(_object);
+            try
+            {
+                onObtain(_object);
+            }
+            finally
+            {
+                Monitor.Exit(_object);
+            }
+        }
+
+        public void Do(Action<T> action)
+        {
+            ObtainLock(action);
         }
     }
 }
